@@ -5,6 +5,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 Builder.load_string("""
 <MenuScreen>:
     BoxLayout:
+        padding: 5
         orientation: 'vertical'
         Label:
             size_hint: (1, 3)
@@ -34,9 +35,62 @@ Builder.load_string("""
 
 <CalcScreen>:
     BoxLayout:
-        Button:
-            text: 'Back to menu'
-            on_press: root.manager.current = 'Menu'
+        orientation: 'vertical'
+        Label:
+            text: '012345'
+            font_size: 40
+            halign: 'right'
+            size_hint: (1, .4)
+        GridLayout:
+            cols: 4
+            spacing: 3
+            padding: 5
+            size_hint: (1, .5)
+
+            Button:
+                text: '7'
+            Button:
+                text: '8'
+            Button:
+                text: '9'
+            Button:
+                text: 'X'
+
+            Button:
+                text: '4'
+            Button:
+                text: '5'
+            Button:
+                text: '6'
+            Button:
+                text: '/'
+
+            Button:
+                text: '1'
+            Button:
+                text: '2'
+            Button:
+                text: '3'
+            Button:
+                text: '-'
+
+            Button:
+                text: '0'
+            Button:
+                text: '.'
+            Button:
+                text: '='
+            Button:
+                text: '-'
+    
+        AnchorLayout:
+            size_hint: (.4, .1)
+            anchor_x: 'center'
+            anchor_y: 'bottom'
+            padding: 5
+            Button:
+                text: 'Back to menu'
+                on_press: root.manager.current = 'Menu'
 
 <ConvertingScreen>:
     BoxLayout:

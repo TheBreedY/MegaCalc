@@ -6,6 +6,7 @@ Builder.load_string("""
 <MenuScreen>:
     BoxLayout:
         padding: 5
+        spacing: 3
         orientation: 'vertical'
         Label:
             size_hint: (1, 3)
@@ -81,7 +82,7 @@ Builder.load_string("""
             Button:
                 text: '='
             Button:
-                text: '-'
+                text: '+'
     
         AnchorLayout:
             size_hint: (.4, .1)
@@ -89,13 +90,13 @@ Builder.load_string("""
             anchor_y: 'bottom'
             padding: 5
             Button:
-                text: 'Back to menu'
+                text: 'Назад до меню'
                 on_press: root.manager.current = 'Menu'
 
 <ConvertingScreen>:
     BoxLayout:
         Button:
-            text: 'Back to menu'
+            text: 'Назад до меню'
             on_press: root.manager.current = 'Menu'
 
 """)

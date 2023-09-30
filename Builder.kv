@@ -1,0 +1,36 @@
+<MenuScreen>:
+    BoxLayout:
+        padding: 5
+        spacing: 3
+        orientation: 'vertical'
+        Label:
+            size_hint: (1, 3)
+            text: 'MegaCalc'
+            font_size: 30
+        Button:
+            text: 'Обчислити'
+            on_press: root.manager.current = 'Calculation'
+        Button:
+            text: 'Конвертувати'
+            on_press: root.manager.current = 'Converting'
+        Button:
+            text: 'Налаштування'
+            on_press: root.manager.current = 'Settings'
+        Button:
+            id:btnExit
+            text: 'Вихід'
+            on_press: App.get_running_app().stop()
+
+<SettingsScreen>:
+    BoxLayout:
+        Button:
+            text: 'Кнопка налаштувань'
+        Button:
+            text: 'Назад до меню'
+            on_press: root.manager.current = 'Menu'
+
+<ConvertingScreen>:
+    BoxLayout:
+        Button:
+            text: 'Назад до меню'
+            on_press: root.manager.current = 'Menu'

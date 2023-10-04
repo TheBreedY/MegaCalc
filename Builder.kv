@@ -25,6 +25,8 @@
 
 <SettingsScreen>:
     BoxLayout:
+        padding: 5
+        spacing: 3
         Button:
             text: 'Кнопка налаштувань'
         Button:
@@ -34,6 +36,8 @@
 <ConvertingScreen>:
     BoxLayout:
         orientation: 'vertical'
+        padding: 5
+        spacing: 3
         Button:
             text: 'З десяткової у двійкову'
             on_press: root.manager.current = 'DecimalToBinary'

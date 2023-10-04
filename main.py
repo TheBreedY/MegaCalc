@@ -40,11 +40,17 @@ class CalcScreen(Screen):
                 h_layout.add_widget(button)
             layout.add_widget(h_layout)
 
-        equals_button = Button(text='=', pos_hint={'center_x': 0.5, 'center_y': 0.5})
-        equals_button.bind(on_press=self.on_solution)
-        layout.add_widget(equals_button)
+        other_buttons = [
+            ['=', '<-']            
+        ]
 
-        
+        for row in other_buttons:
+            other_buttons_layout = BoxLayout()
+            for label in row:
+                other_button = Button(text=label, pos_hint={'center_x': 0.5, 'center_y': 0.5})
+                other_button.bind(on_press=self.on_button_press)
+                other_buttons_layout.add_widget(other_button)
+            layout.add_widget(other_buttons_layout)
 
         backtoMenuButton = Button(text='Назад до меню')
         backtoMenuButton.bind(on_press=self.switch_to_menu)
@@ -58,11 +64,15 @@ class CalcScreen(Screen):
 
         if button_text == 'C':
             self.result.text = ''
+        elif button_text == '<-':
+            self.result.text = self.result.text[:-1]
+        elif button_text == '=':
+            self.on_solution()
         else:
             new_text = current + button_text
             self.result.text = new_text
 
-    def on_solution(self, instance):
+    def on_solution(self):
         text = self.result.text
         try:
             solution = str(eval(self.result.text))
@@ -105,10 +115,6 @@ class ConvertingFromDecimalToBinaryScreen(Screen):
                 button.bind(on_press=self.on_button_press)
                 h_layout.add_widget(button)
             layout.add_widget(h_layout)
-
-        # equals_button = Button(text='=', pos_hint={'center_x': 0.5, 'center_y': 0.5})
-        # equals_button.bind(on_press=self.on_solution)
-        # layout.add_widget(equals_button)
 
         backtoMenuButton = Button(text='Назад до меню')
         backtoMenuButton.bind(on_press=self.switch_to_menu)

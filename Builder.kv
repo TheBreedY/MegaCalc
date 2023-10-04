@@ -1,3 +1,5 @@
+#:kivy 1.4.0
+
 <MenuScreen>:
     BoxLayout:
         padding: 5
@@ -31,6 +33,13 @@
 
 <ConvertingScreen>:
     BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: 'З десяткової у двійкову'
+            on_press: root.manager.current = 'DecimalToBinary'
+        Button:
+            text: 'З двійкової у десяткову'
+            on_press: root.manager.current = 'BinaryToDecimal'
         Button:
             text: 'Назад до меню'
             on_press: root.manager.current = 'Menu'
